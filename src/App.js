@@ -5,7 +5,7 @@ import * as yup from 'yup';
 import axios from "axios";
 import PizzaForm from "./components/PizzaForm";
 import Home from "./components/Home";
-import Nav from "./components/Nav";
+
 
 const initialFormValues ={
   name: "",
@@ -27,7 +27,7 @@ const App = () => {
 
   const[orders, setOrders]= useState(initialOrders)
   const[formValues, setFormValues] = useState(initialFormValues)
-  const[errors, setFormErrors] =useState("")
+  const[formErrors, setFormErrors] =useState("")
   const [disabled, setDisabled] = useState(initialDisabled)
 
   const getOrders = () => {
@@ -82,7 +82,7 @@ const App = () => {
       special: formValues.special,
     };
     // 🔥 STEP 8- POST NEW FRIEND USING HELPER
-    postNewOrder(newOrder);
+    postPizzaOrder(newOrder);
   }
 
   useEffect(() => {
@@ -97,12 +97,18 @@ const App = () => {
   return (
     <div className='container'>
       <Switch>
-           <Route exact path="/">
-              <Home />
-           </Route>
-           <Route path="/pizza">
-            
-           </Route>
+            <Route exact path="/">
+                <Home />
+            </Route>
+            <Route path="/pizza">
+                  <PizzaForm
+                      values={formValues}
+                      change={inputChange}
+                      submit={formSubmit}
+                      disabled={disabled}
+                      errors={formErrors} />
+            </Route>
+
       </Switch>
     </div>
   )

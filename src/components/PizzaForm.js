@@ -1,5 +1,4 @@
-import React from 'react'
-import "./Nav"
+import React from 'react';
 import{ Link } from 'react-router-dom';
 
 export default function PizzaForm(props) {
@@ -25,12 +24,25 @@ export default function PizzaForm(props) {
     }
     
     return(
-        <form className="form container" onSubmit={onSubmit}>
+        <form id="order-pizza" onSubmit={onSubmit}>
+            <div className='form-group submit'>
+                    <h2>Start Your Order</h2>
+
+                    <div className='errors'>
+                    {/* 🔥 RENDER THE VALIDATION ERRORS HERE */}
+                    <div>{errors.name}</div>
+                    <div>{errors.size}</div>
+                    <div>{errors.sauce}</div>
+                    <div>{errors.toppings}</div>
+                    <div>{errors.special}</div>
+                    </div>
+            </div>
             <label>Name
                <input 
                     id = "name-input"
                     name="name"
                     type="text"
+                    maxLength="15"
                     value={formValues.name}
                     onChange={onChange} />
 
@@ -101,7 +113,19 @@ export default function PizzaForm(props) {
                 checked={formValues.toppings.bellpeppers === true}
             />
             </label>
+            <label>Special Instructions
+               <input 
+                    id = "name-input"
+                    name="name"
+                    type="text"
+                    maxLength="300"
+                    value={formValues.special}
+                    onChange={onChange} />
 
+            </label>
+            <Link id ="pizza-orders" to="/order">
+                <button name="submit" type="submit" disabled={disabled}>Place Order</button>
+            </Link>
         
         </form>
 

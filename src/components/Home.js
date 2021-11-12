@@ -1,9 +1,9 @@
 import React from 'react';
-import "./components/Nav.js";
+import Navigation from "./Navigation";
 import "../App.css";
 
 export default function Home(){
     return(
-        <Nav />
+        <Navigation />
     );
 };
