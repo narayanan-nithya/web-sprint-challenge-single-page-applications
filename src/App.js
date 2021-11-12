@@ -80,9 +80,8 @@ const App = () => {
       name: formValues.name.trim(),
       size: formValues.size,
       sauce: formValues.sauce,
-      toppings: Object.keys(formValues.toppings).filter(topping => formValues.toppings[topping],
-      ),
-      special: formValues.special,
+      toppings: ['olives', 'capers', 'onions','bellpeppers'].filter(topping => !!formValues[topping]),
+      special: formValues.special.trim(),
     };
     // 🔥 STEP 8- POST NEW FRIEND USING HELPER
     postPizzaOrder(newOrder);
@@ -118,7 +117,7 @@ const App = () => {
       {
         orders.map(order => {
           return (
-            <Order key={order.id} details={order} />
+            <Order details={order} />
           )
         })
       }

@@ -6,13 +6,13 @@ export default function PizzaForm(props) {
     const {
         change,
         values,
-        formSubmit,
+        submit,
         errors,
     } = props;
 
     const onSubmit = evt => {
         evt.preventDefault()
-        formSubmit()
+        submit()
     }
     
     const onChange = evt => {
@@ -123,9 +123,8 @@ export default function PizzaForm(props) {
                     onChange={onChange} />
 
             </label>
-            <Link id ="pizza-orders" to="/order">
-                <button name="submit" id="order-button" type="submit">Add To Order</button>
-            </Link>
+            <button name="submit" id="order-button" type="submit">Add To Order</button>
+            
         
         </form>
 
