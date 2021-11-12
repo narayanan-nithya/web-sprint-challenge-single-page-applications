@@ -86,7 +86,7 @@ export default function PizzaForm(props) {
                 type='checkbox'
                 name='olives'
                 onChange={onChange}
-                checked={values.olives}
+                checked={values.olives === true}
             />
             </label>
             <label>Capers

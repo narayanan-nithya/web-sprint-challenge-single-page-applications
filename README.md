@@ -35,32 +35,44 @@ Commit your code regularly and meaningfully. This helps both you (in case you ev
 Demonstrate your understanding of this week's concepts by answering the following free-form questions. Edit this document to include your answers after each question.
 
 1. In 1-2 sentences, explain what React's `useRouteMatch` hook is used for.
+
+
+Answer : `useRouteMatch` helps match the current URL and helps match the data without actually having to render the <Route>. It functions similar to <Route>
+
+
 1. How would you explain form validation to someone who has never programmed before?
+
+
+Answer: Validation is the process to ensure that the program functions as it is suppose to. So, for a form validation, the user actions should be performable namely, input variables(name, age, address), menu selection(dropdown, checkbox, radios) and a confirmation is logged which details the user actions and returns it in the UI in the form of fields. 
+
 1. In 1-2 sentences, define end to end testing.
+
+Answer: End to End testing is the process to verifying and validating that the application performs the complete UI actions when a user performs a user action on the application. For any sort of testing , there are 3 main concepts -
+Arrange (Build, Setup), Act( User actions), Assert(validation)
 
 ## Instructions
 
 ### Task 1: Project Set Up
 
-- [ ] Create a forked copy of this project
-- [ ] Clone your OWN version of the repository (Not Lambda's by mistake!)
-- [ ] Implement the project on the main branch, committing changes regularly
-- [ ] Push commits: `git push origin main`
-- [ ] PUSH EVERYTHING TO THE MAIN BRANCH
+- [x ] Create a forked copy of this project
+- [x ] Clone your OWN version of the repository (Not Lambda's by mistake!)
+- [x ] Implement the project on the main branch, committing changes regularly
+- [ x] Push commits: `git push origin main`
+- [ x] PUSH EVERYTHING TO THE MAIN BRANCH
 
 ### Task 2: Project Requirements
 
 Your finished project must include all of the following requirements:
 
-- [ ] A homepage that has a "/" route and links to your form (button, nav bar, or any other type of link is acceptable but must have an id of "order-pizza")
-- [ ] A order form that has a "/pizza" route and shows the form
-- [ ] A form with an id of "pizza-form"
-- [ ] A name text input field with an id of "name-input"
-- [ ] Validation for name and the error message is "name must be at least 2 characters" (Use this exact error message to make sure tests pass) ::: VERY IMPORTANT TO USE THAT EXACT ERROR MESSAGE (casing included!)
-- [ ] A dropdown for pizza size with an id of "size-dropdown"
-- [ ] A checklist for toppings - at least 4 (hint: name each separately!)
-- [ ] Text input for special instructions with an id of "special-text"
-- [ ] An Add to Order button that has an id of "order-button" and that submits form and returns a database record of name, size, toppings and special instructions
+- [x ] A homepage that has a "/" route and links to your form (button, nav bar, or any other type of link is acceptable but must have an id of "order-pizza")
+- [ x] A order form that has a "/pizza" route and shows the form
+- [x ] A form with an id of "pizza-form"
+- [x ] A name text input field with an id of "name-input"
+- [ x] Validation for name and the error message is "name must be at least 2 characters" (Use this exact error message to make sure tests pass) ::: VERY IMPORTANT TO USE THAT EXACT ERROR MESSAGE (casing included!)
+- [x ] A dropdown for pizza size with an id of "size-dropdown"
+- [x ] A checklist for toppings - at least 4 (hint: name each separately!)
+- [x ] Text input for special instructions with an id of "special-text"
+- [ x] An Add to Order button that has an id of "order-button" and that submits form and returns a database record of name, size, toppings and special instructions
 
 Data should look something like
 ```
@@ -81,9 +93,9 @@ there is a key for each of the toppings and they are booleans
 
 Implement the following tests in Cypress:
 
-- [ ] test that you can add text to the box
-- [ ] test that you can select multiple toppings
-- [ ] test that you can submit the form
+- [x ] test that you can add text to the box
+- [ x] test that you can select multiple toppings
+- [ x] test that you can submit the form
 
 In your solution, it is essential that you follow best practices and produce clean and professional results. You will be scored on your adherence to proper code style and good organization. Schedule time to review, refine, and assess your work and perform basic professional polishing including spell-checking and grammar-checking on your work. It is better to submit a challenge that meets MVP than one that attempts too much and does not.
 

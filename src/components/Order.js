@@ -1,4 +1,5 @@
 import React from 'react'
+import Home from './Home'
 
 function Order({ details }) {
   if (!details) {
@@ -9,7 +10,6 @@ function Order({ details }) {
     <div className='order container'>
       <h2>Name: {details.name}</h2>
       <p>Size: {details.size}</p>
-      <p>Sauce: {details.sauce}</p>
       <p>Special Instructions: {details.special}</p>
 
       {
@@ -21,6 +21,7 @@ function Order({ details }) {
           </ul>
         </div>
       }
+      <Home />
       
     </div>
   )

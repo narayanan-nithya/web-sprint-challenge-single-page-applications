@@ -7,6 +7,7 @@ export default function Navigation(){
         <h1> Lambda Eats </h1>
         <nav>
             <Link to="/">Home </Link>
+            
         </nav>
         <h2>Hungry?</h2>
         <nav>
