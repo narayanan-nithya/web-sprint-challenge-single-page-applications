@@ -1,12 +1,13 @@
 import React, {useState, useEffect} from "react";
 import {Switch, Route } from "react-router-dom";
 import "./App.css";
-import schema from '../validation/formSchema'
 import * as yup from 'yup';
 import axios from "axios";
+import schema from "./validation/formSchema";
 import PizzaForm from "./components/PizzaForm";
 import Home from "./components/Home";
 import Order from "./components/Order";
+
 
 
 const initialFormValues ={
@@ -32,21 +33,22 @@ const App = () => {
   const[formErrors, setFormErrors] =useState("")
   const [disabled, setDisabled] = useState(initialDisabled)
 
-  const getOrders = () => {
+/**const getOrders = () => {
     axios.get('https://reqres.in/api/orders')
        .then(res => {
          console.log(res)
-        setOrders(res.data);
+        setOrders(res.data.data);
         })
        .catch(err => console.error(err))
-  }
+  } */
+  
   const postPizzaOrder = newOrder => {
     // 🔥 STEP 6- IMPLEMENT! ON SUCCESS ADD NEWLY CREATED FRIEND TO STATE
     //    helper to [POST] `newFriend` to `http://buddies.com/api/friends`
     //    and regardless of success or failure, the form should reset
     axios.post('https://reqres.in/api/orders', newOrder)
       .then(res => {
-        setOrders([res.data, ...orders]);
+        setOrders( [res.data.data, ...orders] );
       })
       .catch(err => console.error(err))
       .finally(() => {
@@ -54,9 +56,8 @@ const App = () => {
       })
   }
 
-  const validate = (name, value) =>{
-    yup
-        .reach(schema, name).validate(value)
+  const validate = (name, value) => {
+    yup.reach(schema, name).validate(value)
         .then(() => setFormErrors({ ...formErrors, [name]: '' }))
         .catch(err => setFormErrors({ ...formErrors, [name]: err.errors[0]}))
   }
@@ -87,9 +88,10 @@ const App = () => {
     postPizzaOrder(newOrder);
   }
 
-  useEffect(() => {
+  /** useEffect(() => {
     getOrders()
-  }, [])
+  }, [])*/
+  
 
   useEffect(() => {
     // 🔥 STEP 9- ADJUST THE STATUS OF `disabled` EVERY TIME `formValues` CHANGES

@@ -4,10 +4,9 @@ import{ Link } from 'react-router-dom';
 export default function PizzaForm(props) {
 
     const {
-        inputChange,
-        formValues,
+        change,
+        values,
         formSubmit,
-        disabled, 
         errors,
     } = props;
 
@@ -20,7 +19,8 @@ export default function PizzaForm(props) {
         /* 🔥 FIX THIS SO IT ALSO WORKS WITH CHECKBOXES */
         const { name, value, checked, type} = evt.target
         const realValue = type === 'checkbox' ? checked : value;
-        inputChange(name, realValue)
+        const radioValue = type === 'radio' ? checked : value;
+        change(name, realValue, radioValue)
     }
     
     return(
@@ -39,19 +39,19 @@ export default function PizzaForm(props) {
             </div>
             <label>Name
                <input 
-                    id = "name-input"
+                    value={values.name}
                     name="name"
+                    id = "name-input"
                     type="text"
                     maxLength="15"
-                    value={formValues.name}
                     onChange={onChange} />
 
             </label>
             <label>Size
                <select
+                    value={values.size}
                     id = "size-dropdown"
-                    name="size"
-                    value={formValues.size}
+                    name='size'
                     onChange={onChange} >
                     <option value="">Select Desired Pizza Size</option>
                     <option value="small">Small</option>
@@ -66,7 +66,7 @@ export default function PizzaForm(props) {
                 name='sauce'
                 value='red'
                 onChange={onChange}
-                checked={formValues.sauce === 'red'} />
+                checked={values.sauce === 'red'} />
                
             </label>
             <label>White Sauce
@@ -75,7 +75,7 @@ export default function PizzaForm(props) {
                 name='sauce'
                 value='white'
                 onChange={onChange}
-                checked={formValues.sauce === 'white'} />
+                checked={values.sauce === 'white'} />
                
             </label>
      
@@ -86,7 +86,7 @@ export default function PizzaForm(props) {
                 type='checkbox'
                 name='olives'
                 onChange={onChange}
-                checked={formValues.toppings.olives === true}
+                checked={values.olives}
             />
             </label>
             <label>Capers
@@ -94,7 +94,7 @@ export default function PizzaForm(props) {
                 type='checkbox'
                 name='capers'
                 onChange={onChange}
-                checked={formValues.toppings.capers === true}
+                checked={values.capers}
             />
             </label>
             <label>Onions
@@ -102,7 +102,7 @@ export default function PizzaForm(props) {
                 type='checkbox'
                 name='onions'
                 onChange={onChange}
-                checked={formValues.toppings.onions === true}
+                checked={values.onions}
             />
             </label>
             <label>Bell Peppers
@@ -110,21 +110,21 @@ export default function PizzaForm(props) {
                 type='checkbox'
                 name='bellpeppers'
                 onChange={onChange}
-                checked={formValues.toppings.bellpeppers === true}
+                checked={values.bellpeppers}
             />
             </label>
             <label>Special Instructions
                <input 
                     id = "special-text"
-                    name="name"
+                    name="special"
                     type="text"
                     maxLength="300"
-                    value={formValues.special}
+                    value={values.special}
                     onChange={onChange} />
 
             </label>
             <Link id ="pizza-orders" to="/order">
-                <button name="submit" id="order-button" type="submit" disabled={disabled}>Add To Order</button>
+                <button name="submit" id="order-button" type="submit">Add To Order</button>
             </Link>
         
         </form>

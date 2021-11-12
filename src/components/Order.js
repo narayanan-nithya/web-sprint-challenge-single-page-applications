@@ -1,5 +1,4 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
 
 export default function Order({ details }) {
   if (!details) {
@@ -22,7 +21,7 @@ export default function Order({ details }) {
           </ul>
         </div>
       }
-      <Link id="homepage" to="/">Home</Link>
+      
     </div>
   )
 }
