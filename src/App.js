@@ -1,10 +1,12 @@
 import React, {useState, useEffect} from "react";
-import { Link, Switch, Route } from "react-router-dom";
+import {Switch, Route } from "react-router-dom";
 import "./App.css";
+import schema from '../validation/formSchema'
 import * as yup from 'yup';
 import axios from "axios";
 import PizzaForm from "./components/PizzaForm";
 import Home from "./components/Home";
+import Order from "./components/Order";
 
 
 const initialFormValues ={
@@ -110,6 +112,14 @@ const App = () => {
             </Route>
 
       </Switch>
+
+      {
+        orders.map(order => {
+          return (
+            <Order key={order.id} details={order} />
+          )
+        })
+      }
     </div>
   )
 }

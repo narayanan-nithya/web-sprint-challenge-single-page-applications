@@ -49,7 +49,7 @@ export default function PizzaForm(props) {
             </label>
             <label>Size
                <select
-                    id = "size-input"
+                    id = "size-dropdown"
                     name="size"
                     value={formValues.size}
                     onChange={onChange} >
@@ -115,7 +115,7 @@ export default function PizzaForm(props) {
             </label>
             <label>Special Instructions
                <input 
-                    id = "name-input"
+                    id = "special-text"
                     name="name"
                     type="text"
                     maxLength="300"
@@ -124,7 +124,7 @@ export default function PizzaForm(props) {
 
             </label>
             <Link id ="pizza-orders" to="/order">
-                <button name="submit" type="submit" disabled={disabled}>Place Order</button>
+                <button name="submit" id="order-button" type="submit" disabled={disabled}>Add To Order</button>
             </Link>
         
         </form>
