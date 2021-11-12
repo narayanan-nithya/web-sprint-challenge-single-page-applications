@@ -1,5 +1,5 @@
 import React from 'react';
-import{ Link } from 'react-router-dom';
+import { Link } from 'react-router-dom'
 
 export default function PizzaForm(props) {
 
@@ -123,8 +123,9 @@ export default function PizzaForm(props) {
                     onChange={onChange} />
 
             </label>
+            <Link id= "order-details" to="/order">
             <button name="submit" id="order-button" type="submit">Add To Order</button>
-            
+            </Link>
         
         </form>
 

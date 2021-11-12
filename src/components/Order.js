@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default function Order({ details }) {
+function Order({ details }) {
   if (!details) {
     return <h3>Fetching your Order details...</h3>
   }
@@ -17,7 +17,7 @@ export default function Order({ details }) {
         <div>
           Toppings:
           <ul>
-            {details.toppings.map((choose, idx) => <li key={idx}>{choose}</li>)}
+            {details.toppings.map((topping, idx) => <li key={idx}>{topping}</li>)}
           </ul>
         </div>
       }
@@ -25,3 +25,4 @@ export default function Order({ details }) {
     </div>
   )
 }
+export default Order

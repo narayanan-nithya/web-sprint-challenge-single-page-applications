@@ -111,16 +111,11 @@ const App = () => {
                       disabled={disabled}
                       errors={formErrors} />
             </Route>
-
+            <Route path="/order">
+                  <Order details={orders} />
+            </Route>
       </Switch>
 
-      {
-        orders.map(order => {
-          return (
-            <Order details={order} />
-          )
-        })
-      }
     </div>
   )
 }
