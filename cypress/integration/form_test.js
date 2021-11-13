@@ -3,11 +3,11 @@ describe('', () => {
             cy.visit('http://localhost:3000/pizza');
         })
 
-    const nameInput = () => cy.get('input[name = name]');
+    const nameInput = () => cy.get('input[name=name]');
     const oliveBox = () => cy.get ('input[name=olives]')
     const caperBox = () => cy.get ('input[name=capers]')
     const onionsBox = () => cy.get ('input[name=onions]')
-    const pepperBox = () => cy.get ('input[name=bellpeppers]')
+    const garlicBox = () => cy.get ('input[name=garlic]')
     const AddToOrderBtn = () => cy.get('button[type = submit]')
 
     it('Make sure the elements show', () => {
@@ -16,7 +16,7 @@ describe('', () => {
         oliveBox().should('exist');
         caperBox().should('exist');
         onionsBox().should('exist');
-        pepperBox().should('exist');
+        garlicBox().should('exist');
         AddToOrderBtn().should('exist');
 
     })
@@ -29,7 +29,7 @@ describe('', () => {
         oliveBox().should('not.be.disabled')
         caperBox().should('not.be.disabled')
         onionsBox().should('not.be.disabled')
-        pepperBox().should('not.be.disabled')
+        garlicBox().should('not.be.disabled')
         AddToOrderBtn().should('not.be.disabled')
                         
     })

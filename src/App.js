@@ -7,9 +7,19 @@ import schema from "./validation/formSchema";
 import PizzaForm from "./components/PizzaForm";
 import Home from "./components/Home";
 import Order from "./components/Order";
+import styled from 'styled-components'
 
 
+//creating Styling Div
+const Div = styled.div`
+  display: flex;
+  justify-content: center;
+  padding:12%;
+  margin-top: 0px;
+  `;
 
+
+//setting intial form values
 const initialFormValues ={
   name: "",
   size: "",
@@ -18,11 +28,12 @@ const initialFormValues ={
     olives:false,
     capers:false,
     onions:false,
-    bellpeppers:false,
+    garlic:false,
   },
   special: "",
 };
 
+//setting initial orders array
 const initialOrders =[];
 const initialDisabled =true;
 
@@ -33,29 +44,30 @@ const App = () => {
   const[formErrors, setFormErrors] =useState("")
   const [disabled, setDisabled] = useState(initialDisabled)
 
-/**const getOrders = () => {
+  //get current orders
+  const getOrders = () => {
     axios.get('https://reqres.in/api/orders')
        .then(res => {
          console.log(res)
-        setOrders(res.data.data);
+        setOrders(res.data);
         })
        .catch(err => console.error(err))
-  } */
+  } 
   
   const postPizzaOrder = newOrder => {
-    // 🔥 STEP 6- IMPLEMENT! ON SUCCESS ADD NEWLY CREATED FRIEND TO STATE
-    //    helper to [POST] `newFriend` to `http://buddies.com/api/friends`
-    //    and regardless of success or failure, the form should reset
+    //ADD newly created order TO STATE
+    //     to 'https://reqres.in/api/orders'
+    //    and reset form.
     axios.post('https://reqres.in/api/orders', newOrder)
       .then(res => {
-        setOrders( [res.data.data, ...orders] );
+        setOrders( [res.data, ...orders] );
       })
       .catch(err => console.error(err))
       .finally(() => {
         setFormValues(initialFormValues);
       })
   }
-
+  //validate form errors
   const validate = (name, value) => {
     yup.reach(schema, name).validate(value)
         .then(() => setFormErrors({ ...formErrors, [name]: '' }))
@@ -63,47 +75,42 @@ const App = () => {
   }
 
   //////////////// EVENT HANDLERS ////////////////
-  //////////////// EVENT HANDLERS ////////////////
-  //////////////// EVENT HANDLERS ////////////////
   const inputChange = (name, value) => {
-    // 🔥 STEP 10- RUN VALIDATION WITH YUP
     validate(name, value);
     setFormValues({
       ...formValues,
-      [name]: value // NOT AN ARRAY
+      [name]: value 
     })
   }
-
-  
+//form submission event handler
   const formSubmit = () => {
     const newOrder = {
       name: formValues.name.trim(),
       size: formValues.size,
       sauce: formValues.sauce,
-      toppings: ['olives', 'capers', 'onions','bellpeppers'].filter(topping => !!formValues[topping]),
+      toppings: ['olives', 'capers', 'onions', 'garlic'].filter(topping => !!formValues[topping]),
       special: formValues.special.trim(),
     };
-    // 🔥 STEP 8- POST NEW FRIEND USING HELPER
+    // Posting new pizza order
     postPizzaOrder(newOrder);
   }
 
-  /** useEffect(() => {
+ useEffect(() => {
     getOrders()
-  }, [])*/
+  }, [])
   
-
+  //updated disabled every time form values change.
   useEffect(() => {
-    // 🔥 STEP 9- ADJUST THE STATUS OF `disabled` EVERY TIME `formValues` CHANGES
     schema.isValid(formValues).then(valid => setDisabled(!valid));
   }, [formValues])
   
   return (
-    <div className='container'>
-      <Switch>
+    <Div>
+      <Switch>{/*setting exact path for homepage*/}
             <Route exact path="/">
                 <Home />
             </Route>
-            <Route path="/pizza">
+            <Route path="/pizza">{/*path route for /pizza*/}
                   <PizzaForm
                       values={formValues}
                       change={inputChange}
@@ -111,12 +118,12 @@ const App = () => {
                       disabled={disabled}
                       errors={formErrors} />
             </Route>
-            <Route path="/order">
-                  <Order details={orders} />
+            <Route path="/order"> {/*path route for orders*/}
+             <Order details={orders} />
             </Route>
       </Switch>
 
-    </div>
+  </Div>
   )
 }
 export default App;

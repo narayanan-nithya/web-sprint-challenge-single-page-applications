@@ -1,15 +1,15 @@
 import React from 'react'
-import Home from './Home'
-
+//While there are missing order details, app provides fetching order details 
 function Order({ details }) {
   if (!details) {
-    return <h3>Fetching your Order details...</h3>
+    return <h3>Fetching your order details...</h3>
   }
-
+//Order details loading.
   return (
     <div className='order container'>
-      <h2>Name: {details.name}</h2>
-      <p>Size: {details.size}</p>
+      <h2>Your Order Details</h2>
+      <p>Name:{details.name}</p>
+      <p>Size:{details.size}</p>
       <p>Special Instructions: {details.special}</p>
 
       {
@@ -17,11 +17,10 @@ function Order({ details }) {
         <div>
           Toppings:
           <ul>
-            {details.toppings.map((topping, idx) => <li key={idx}>{topping}</li>)}
+            {details.toppings.map((select, idx) => <li key={idx}>{select}</li>)}
           </ul>
         </div>
       }
-      <Home />
       
     </div>
   )
