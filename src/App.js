@@ -5,7 +5,7 @@ import * as yup from 'yup';
 import axios from "axios";
 import schema from "./validation/formSchema";
 import PizzaForm from "./components/PizzaForm";
-import Home from "./components/Home";
+import Home from "./components/Homepage";
 import Order from "./components/Order";
 import styled from 'styled-components'
 
