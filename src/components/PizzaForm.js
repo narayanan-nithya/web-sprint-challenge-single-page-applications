@@ -133,7 +133,7 @@ export default function PizzaForm(props) {
                 </label>
                 {/** routing the submission of order to /order page when user submit the order user Add To Order Button.*/}
                 <Link id= "order-details" to="/order">
-                <input name="submit" id="order-button" type="submit" value= "Add To Order" />
+                <button id="order-button" type="submit" value= "Add To Order">Add To Order</button>
                 </Link>
             </div>
 
