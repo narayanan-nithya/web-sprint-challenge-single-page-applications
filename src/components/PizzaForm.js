@@ -12,6 +12,8 @@ export default function PizzaForm(props) {
         errors,
     } = props;
 
+    
+
     //preventing page refresh
     const onSubmit = evt => {
         evt.preventDefault()
@@ -69,7 +71,7 @@ export default function PizzaForm(props) {
                     name='sauce'
                     value='red'
                     onChange={onChange}
-                    checked={values.sauce === 'red'} />
+                    checked={values.sauce==='red'} />
                 </label>
                 <label>White Sauce
                     <input
@@ -77,7 +79,7 @@ export default function PizzaForm(props) {
                     name='sauce'
                     value='white'
                     onChange={onChange}
-                    checked={values.sauce === 'white'} />
+                    checked={values.sauce==='white'} />
                 </label>
         
             {/* ////////// CHECKBOXES ////////// */}
@@ -131,7 +133,7 @@ export default function PizzaForm(props) {
                 </label>
                 {/** routing the submission of order to /order page when user submit the order user Add To Order Button.*/}
                 <Link id= "order-details" to="/order">
-                <button name="submit" id="order-button" type="submit">Add To Order</button>
+                <input name="submit" id="order-button" type="submit" value= "Add To Order" />
                 </Link>
             </div>
 

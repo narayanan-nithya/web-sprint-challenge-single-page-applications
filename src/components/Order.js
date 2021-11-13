@@ -17,7 +17,8 @@ function Order({ details }) {
         <div>
           Toppings:
           <ul>
-            {details.toppings.map((select, idx) => <li key={idx}>{select}</li>)}
+            {details.toppings.map((pick) => 
+                <li >{pick}</li>)}
           </ul>
         </div>
       }
